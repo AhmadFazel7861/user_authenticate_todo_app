@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+</head>
+<body>
+    <button id="mode-toggle">🌙 Toggle Night Mode</button>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ log.as_p }}
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+        </form>
+    </div>
+    <script src="{% static 'app/script.js' %}"></script>
+</body>
+</html>

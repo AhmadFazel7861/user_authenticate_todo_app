@@ -1,0 +1,128 @@
+:root {
+    --bg-color: #f4f6f9;
+    --text-color: #333;
+    --input-bg: #fff;
+    --btn-bg: #007bff;
+    --btn-text: #fff;
+    --link-color: #007bff;
+}
+
+body.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #eee;
+    --input-bg: #2c2c2c;
+    --btn-bg: #3a8cff;
+    --btn-text: #fff;
+    --link-color: #79b8ff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 2px solid var(--btn-bg);
+    color: var(--btn-bg);
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-container {
+    background-color: var(--input-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Extend your existing CSS file */
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.task-item {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    color: #ff1a1a;
+}

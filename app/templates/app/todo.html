@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+</head>
+<body>
+    <button id="mode-toggle">🌙 Toggle Night Mode</button>
+
+    <div class="form-container">
+        <h2>My To-Do List</h2>
+
+        <!-- Task Input Form -->
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="task" placeholder="Enter a new task" required value="{{ update_task_name }}">
+            {% if update_task_name %}
+                <input type="hidden" name="edit_task_name" value="{{ update_task_name }}">
+                <button type="submit">Update Task</button>
+            {% else %}
+                <button type="submit">Add Task</button>
+            {% endif %}
+        </form>
+
+        <!-- Task List -->
+        <ul class="task-list">
+            {% for t in todo %}
+            <li class="task-item">
+                <span>{{ t.todo_name }}</span>
+                <div>
+                    <a href="{% url 'update' t.todo_name %}"><button class="edit-btn">✎</button></a>
+                    <a href="{% url 'delete' t.todo_name %}"><button class="delete-btn">✖</button></a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <button><a href="{% url 'logout' %}">logout</a></button>
+    </div>
+
+    <script src="{% static 'app/script.js' %}"></script>
+</body>
+</html>
